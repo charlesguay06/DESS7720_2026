@@ -5,6 +5,7 @@ let refletImage
 function preload() {
 
 refletImage = loadImage("./assets/images/reflet.jpg")
+refletVideo = loadVideo("./assets/videos/Comp.mp4")
 
 }
 
@@ -15,18 +16,21 @@ refletImage = loadImage("./assets/images/reflet.jpg")
 function setup() {
     createCanvas(refletImage.width *2, refletImage.height);
     background(0);
-    image(refletImage, 0, 0);
 
     
 }
 
 function draw() {
+    
+    image(refletImage, 0, 0);
+    noFill();
+    stroke(255, 0, 0);
     rect(mouseX, mouseY, 100, 100);
 }
 
 
 function mouseDragged() {
-    copy(refletImage, mouseX, mouseY, 100, 100, mouseX + refletImage.width, mouseY, 100, 100);
+    copy(refletImage, mouseX, mouseY, 1, 1, mouseX + refletImage.width, mouseY, 100, 100);
 
 }
 
