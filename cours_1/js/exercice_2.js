@@ -25,12 +25,12 @@ function draw() {
     image(refletImage, 0, 0);
     noFill();
     stroke(255, 0, 0);
-    rect(mouseX, mouseY, 100, 100);
+    rect(mouseX, mouseY, 50, 50);
 }
 
 
 function mouseDragged() {
-    copy(refletImage, mouseX, mouseY, 1, 1, mouseX + refletImage.width, mouseY, 100, 100);
+    copy(refletImage, mouseX, mouseY, 1, 1, mouseX + refletImage.width, mouseY, 50, 50);
 
 }
 
