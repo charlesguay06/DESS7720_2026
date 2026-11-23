@@ -5,6 +5,7 @@ let ellipsePosX;
 let ellipsePosY;
 let distanceMouseEllipse;
 let vitesse;
+let diametreEllipse;
 
 // variables synth
 let osc;
@@ -46,6 +47,9 @@ background(0);
 
 distanceMouseEllipse = dist(doigtX, doigtY, ellipsePosX, ellipsePosY);
 
+diametreEllipse = map(distancePince, 0, 150, 10, 500);
+diametreEllipse = constrain(diametreEllipse, 10, 500);
+
 // console.log(distanceMouseEllipse);
 
 vitesse = map(distanceMouseEllipse, 0, width, 5, 0.001);
@@ -85,7 +89,7 @@ noStroke();
 fill(255, 255, 0);
 // ellipsePosX = ellipsePosX +1;
 // ellipsePosY = ellipsePosY +1;
-ellipse(ellipsePosX, ellipsePosY, 100);
+ellipse(ellipsePosX, ellipsePosY, diametreEllipse);
 pop();
 
 

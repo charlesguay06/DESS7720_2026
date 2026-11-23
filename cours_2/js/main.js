@@ -7,6 +7,7 @@ let pince = false;
 let doigtX = 0;
 let doigtY = 0;
 let mainVisible = false;
+let distancePince = 0;
 
 function demarrerMain() {
   doigtX = width / 2;
@@ -60,6 +61,8 @@ function dessinerMain() {
       points[4].x, points[4].y,
       points[8].x, points[8].y
     );
+
+    distancePince = distanceDoigts;
 
     if (distanceDoigts < 30) {
       pinceActive = true;
