@@ -21,6 +21,7 @@ function setup() {
     ellipsePosX = width / 2;
     ellipsePosY = height / 2;
 
+    demarrerMain();
 
 //SetupSynth
 
@@ -44,7 +45,7 @@ osc.start();
 function draw() {
 background(0);
 
-distanceMouseEllipse = dist(mouseX, mouseY, ellipsePosX, ellipsePosY);
+distanceMouseEllipse = dist(doigtX, doigtY, ellipsePosX, ellipsePosY);
 
 // console.log(distanceMouseEllipse);
 
@@ -53,25 +54,25 @@ vitesse = map(distanceMouseEllipse, 0, width, 5, 0.001);
 // ellipsePosX = constrain(ellipsePosX, 100, width - 50);
 // ellipsePosY = constrain(ellipsePosY, 100, height - 50);
 
-if (mouseX > ellipsePosX) {
+if (doigtX > ellipsePosX) {
     ellipsePosX = ellipsePosX - vitesse;
 }
 
-else if (mouseX < ellipsePosX) {
+else if (doigtX < ellipsePosX) {
     ellipsePosX = ellipsePosX + vitesse;
 }
 
-if (mouseY > ellipsePosY) {
+if (doigtY > ellipsePosY) {
     ellipsePosY = ellipsePosY - vitesse;
 }
 
-else if (mouseY < ellipsePosY) {
+else if (doigtY < ellipsePosY) {
     ellipsePosY = ellipsePosY + vitesse;
 }
 
-if (mouseIsPressed) {
-    ellipsePosX = lerp(ellipsePosX, mouseX, 0.1);
-    ellipsePosY = lerp(ellipsePosY, mouseY, 0.1);
+if (pince) {
+    ellipsePosX = lerp(ellipsePosX, doigtX, 0.1);
+    ellipsePosY = lerp(ellipsePosY, doigtY, 0.1);
 
     push();
     fill(255, 0, 0);
@@ -80,26 +81,36 @@ if (mouseIsPressed) {
 }
 
 
-
+push();
 noStroke();
 // ellipsePosX = ellipsePosX +1;
 // ellipsePosY = ellipsePosY +1;
 ellipse(ellipsePosX, ellipsePosY, 100);
+pop();
 
 
+dessinerMain();
 
 
 }
 
 function mousePressed() {
 
-    frequency = map(distanceMouseEllipse, 0, width, 820, 60); 
-    osc.freq(frequency);
-    enveloppe.play();
+   
 
 }
 
 function mouseReleased() {
     osc.freq(280);
     enveloppe.play();
+}
+
+function doigtPressed() {
+
+     frequency = map(distanceMouseEllipse, 0, width, 820, 60); 
+    osc.freq(frequency);
+    enveloppe.play();
+}
+
+function doigtReleased() {
 }
