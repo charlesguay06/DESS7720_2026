@@ -4,6 +4,7 @@
 # 23-11-2026
 
 Reflexions et idéations
+
 -Texter des émojis avec reconnaisance faciale.
     Tout le monde envoie tout le temps des émojis triste ou des émojis qui rient avec la même face neutre devant leur écran. Donc pour envoyer un emoji tu dois imiter et ton téléphone doit le reconnaître. Il envoie donc un emoji basé sur ton imitation.
 
@@ -16,4 +17,6 @@ Reflexions et idéations
 -Friction au paiement en ligne.
     Transformer le paiement en ligne en action. Manier des billets numériques et les insérer dans une fente comme sur une machine distributrice, mais difficile à faire, car le billet n'est jamais droit.
 
+-Jeu coopératif basé sur la fermeture des yeux
+    Les joueurs doivent se passer quelque chose et doivent fermer les yeux pour prendre possession de l'objet, donc les autres joueurs deoivent guider le joueur en possession de l'objet. 
 
