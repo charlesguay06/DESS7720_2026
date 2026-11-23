@@ -6,7 +6,7 @@ let ellipsePosY;
 let distanceMouseEllipse;
 let vitesse;
 
-//SON
+// variables synth
 let osc;
 let enveloppe;
 let reverb;
@@ -23,20 +23,19 @@ function setup() {
 
     demarrerMain();
 
-//SetupSynth
-
+// SETUP SYNTH 
 enveloppe = new p5.Envelope();
 reverb = new p5.Reverb(5);
-enveloppe.setADSR(0.001, 0.1, 0.5, 0.5);
+enveloppe.setADSR(0.05, 1.0, 1.0, 1.0);
 
 osc = new p5.Oscillator('sawtooth');
-osc.disconnect();  //retirer la sortie directe
-osc.connect(enveloppe); //faire passer le son par l'enveloppe
-reverb.wet(0.5); //mélange 50% d'effet
+osc.disconnect();        // Retirer la sortie directe
+osc.connect(enveloppe);  // Faire passer le son par l’enveloppe
+reverb.wet(0.5);          // Mélange : 50 % d’effet
 
 enveloppe.disconnect();
 enveloppe.connect(reverb);
-osc.amp(0.3);   //volume du son
+osc.amp(0.3);            // Volume du son
 osc.start();
 
 }
@@ -83,6 +82,7 @@ if (pince) {
 
 push();
 noStroke();
+fill(255, 255, 0);
 // ellipsePosX = ellipsePosX +1;
 // ellipsePosY = ellipsePosY +1;
 ellipse(ellipsePosX, ellipsePosY, 100);
@@ -90,6 +90,7 @@ pop();
 
 
 dessinerMain();
+
 
 
 }
@@ -107,10 +108,11 @@ function mouseReleased() {
 
 function doigtPressed() {
 
-     frequency = map(distanceMouseEllipse, 0, width, 820, 60); 
+    frequency = map(distanceMouseEllipse, 0, width, 820, 60); 
     osc.freq(frequency);
     enveloppe.play();
 }
 
 function doigtReleased() {
+    
 }
