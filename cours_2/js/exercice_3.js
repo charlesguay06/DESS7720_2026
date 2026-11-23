@@ -3,6 +3,8 @@
 
 let ellipsePosX;
 let ellipsePosY;
+let distanceMouseEllipse;
+let vitesse;
 
 
 // roule 1 fois au début du script         
@@ -18,21 +20,26 @@ function setup() {
 function draw() {
 background(0);
 
+distanceMouseEllipse = dist(mouseX, mouseY, ellipsePosX, ellipsePosY);
+
+// console.log(distanceMouseEllipse);
+
+vitesse = map(distanceMouseEllipse, 0, width, 5, 0.001);
 
 if (mouseX > ellipsePosX) {
-    ellipsePosX = ellipsePosX - 1;
+    ellipsePosX = ellipsePosX - vitesse;
 }
 
 else if (mouseX < ellipsePosX) {
-    ellipsePosX = ellipsePosX + 1;
+    ellipsePosX = ellipsePosX + vitesse;
 }
 
 if (mouseY > ellipsePosY) {
-    ellipsePosY = ellipsePosY - 1;
+    ellipsePosY = ellipsePosY - vitesse;
 }
 
 else if (mouseY < ellipsePosY) {
-    ellipsePosY = ellipsePosY + 1;
+    ellipsePosY = ellipsePosY + vitesse;
 }
 
 
